@@ -23,10 +23,10 @@
                 Скачать видео
 			</NuxtLink>
 		</div>
-        
-		<p>{{ lesson.text }}</p>
 
         <VideoPlayer v-if="lesson.videoId" :video-id="lesson.videoId"/>
+        
+		<p>{{ lesson.text }}</p>
 
         <LessonCompleteButton :model-value="isLessonComplete" @update:model-value="toggleComplete" />
     </div>
