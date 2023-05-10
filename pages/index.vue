@@ -1,3 +1,5 @@
 <template>
-	<h1>Hello, Mastering Nuxt 3!</h1>
+	<div class="flex justify-center mt-10">
+		<NuxtLink class="font-bold" to="/course">Учим Nuxt 3</NuxtLink>
+	</div>
 </template>
