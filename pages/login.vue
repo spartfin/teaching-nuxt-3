@@ -9,14 +9,27 @@
 <script setup lang="ts">
 const { title } = useCourse();
 const supabase = useSupabaseClient();
+const { query } = useRoute();
+const user = useSupabaseUser();
 
-const login = async () => {
-const { error } = await supabase.auth.signInWithOAuth({
-    provider: 'github',
+watchEffect(async () => {
+    if (user.value) {
+        await navigateTo(query.redirectTo as string, {
+            replace: true,
+        });
+    }
 });
 
-if (error) {
-    console.error(error);
-}
+const login = async () => {
+    const redirectTo = `${window.location.origin}${query.redirectTo}`;
+
+    const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'github',
+        options: { redirectTo },
+    });
+
+    if (error) {
+        console.error(error);
+    }
 };
 </script>
