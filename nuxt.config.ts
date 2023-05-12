@@ -4,6 +4,7 @@ import { defineNuxtConfig } from 'nuxt/config';
 export default defineNuxtConfig({
 	modules: [
 		'@nuxtjs/tailwindcss',
-		'@vueuse/nuxt'
+		'@vueuse/nuxt',
+        '@nuxtjs/supabase',
 	],
 });

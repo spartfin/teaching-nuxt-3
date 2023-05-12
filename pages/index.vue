@@ -1,5 +1,9 @@
 <template>
-	<div class="flex justify-center mt-10">
-		<NuxtLink class="font-bold" to="/course">Учим Nuxt 3</NuxtLink>
-	</div>
+    <NuxtLink class="underline font-medium" :href="firstLesson.path">
+        Перейти к первому уроку
+    </NuxtLink>
 </template>
+
+<script setup lang="ts">
+const firstLesson = await useFirstLesson();
+</script>
